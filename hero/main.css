@@ -1,0 +1,220 @@
+/* 基本重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 避免固定头部遮挡内容 */
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #000;
+  line-height: 1.6;
+  padding-top: 80px; /* 根据 header 高度调整 */
+}
+
+/* 头部及导航栏 */
+header {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f39c12;
+}
+
+/* Hero 区域 */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* YouTube 视频背景 */
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: -2;
+}
+
+.video-background iframe {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 半透明覆盖层 */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* 居中显示的 Hero 内容 */
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #f39c12;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e67e22;
+}
+
+/* Features 区域 */
+.features {
+  padding: 60px 40px;
+  background-color: #111;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.feature {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.feature h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.feature p {
+  font-size: 16px;
+}
+
+/* 卡片区域，固定最大宽度使每行满4个时铺满，不足则居中 */
+.cards-section {
+  padding: 60px 40px;
+  background-color: #222;
+  text-align: center;
+}
+
+.cards-container {
+  max-width: 1260px; /* 4个卡片 * 300px + 3个 gap(20px) = 1260px */
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 不足时居中 */
+  gap: 20px;
+}
+
+.card {
+  flex: 0 0 300px; /* 调整为300px宽 */
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-description {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 页脚 */
+footer {
+  background-color: #000;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 手机屏幕优化 */
+@media screen and (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature {
+    margin: 20px 0;
+    width: 100%;
+  }
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
